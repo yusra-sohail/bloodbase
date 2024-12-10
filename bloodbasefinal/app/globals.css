@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blood-red: #E53935;
+  --deep-red: #C62828;
+  --pure-white: #FFFFFF;
+  --off-white: #F5F5F5;
+  --deep-blue: #1A237E;
+  --success-green: #43A047;
+  --alert-yellow: #FFB300;
+  --error-red: #D32F2F;
+}
+
+@layer base {
+  body {
+    @apply bg-off-white text-deep-blue font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blood-red to-deep-red;
+  }
+}
+
+/* Background Animation Styles */
+.blood-cells-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(229, 57, 53, 0.1), rgba(198, 40, 40, 0.2));
+  z-index: -1;
+}
+
+.blood-cell {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  background: radial-gradient(circle at 30% 30%, #e53935, #c62828);
+  filter: blur(1px);
+  box-shadow: 0 0 10px rgba(229, 57, 53, 0.3);
+}
+
+.dna-animation {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 400px;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.pulse-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+}
+
+.pulse-ring {
+  position: absolute;
+  border: 2px solid rgba(229, 57, 53, 0.1);
+  border-radius: 50%;
+}
+
+/* Blood Request Card Styles */
+.blood-request-card {
+  transition: all 0.3s ease;
+}
+
+.blood-request-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blood-cell, .dna-strand, .pulse-ring, .blood-request-card {
+    animation: none;
+    transition: none;
+  }
+  
+  .blood-cells-container {
+    opacity: 0.1;
+  }
+}
+
