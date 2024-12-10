@@ -20,7 +20,7 @@ export const DonateForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    
+    //i have to work here
     // Handle form submission (e.g., send data to server)
     console.log('Form submitted:', formData)
   }
